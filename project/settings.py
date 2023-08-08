@@ -55,7 +55,9 @@ ROOT_URLCONF = 'project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            BASE_DIR / 'base_templates' #configuração de diretorio de templates
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -119,6 +121,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+#R31- STATICFILES_DIRS PARA CONFIGURAR A PASTA DE ARQUIVOS STATICOS 
+#ESSA CONFIGURAÇÃO NÃO VEM COM O DJANGO
+#Feito essa configuração partir para criação da seguinte hierarquia de diretorio
+#no diretorio do app criar templates/<nome_do_app>
+STATICFILES_DIRS = (
+    BASE_DIR / 'base_static',
+)
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
